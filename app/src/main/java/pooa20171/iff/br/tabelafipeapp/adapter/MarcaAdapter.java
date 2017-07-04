@@ -19,8 +19,16 @@ import pooa20171.iff.br.tabelafipeapp.model.Marca;
 public class MarcaAdapter extends RecyclerView.Adapter {
 
     private List<Marca> marcas;
+
+
+
     private Context context;
     private static ClickRecyclerViewListener clickRecyclerViewListener;
+
+    public MarcaAdapter(List<Marca> marcas, Context context) {
+        this.marcas = marcas;
+        this.context = context;
+    }
 
     public MarcaAdapter(List<Marca> marcas, Context context,
                         ClickRecyclerViewListener clickRecyclerViewListener) {
@@ -28,6 +36,10 @@ public class MarcaAdapter extends RecyclerView.Adapter {
         this.marcas = marcas;
         this.context = context;
         this.clickRecyclerViewListener = clickRecyclerViewListener;
+    }
+
+    public static void setClickRecyclerViewListener(ClickRecyclerViewListener clickRecyclerViewListener) {
+        MarcaAdapter.clickRecyclerViewListener = clickRecyclerViewListener;
     }
 
     @Override

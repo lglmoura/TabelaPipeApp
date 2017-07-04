@@ -4,14 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pooa20171.iff.br.tabelafipeapp.activity.MainActivity">
+    tools:context="pooa20171.iff.br.tabelafipeapp.activity.MarcaActivity">
 
-    <Button
-        android:id="@+id/bt_marca"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="irParaMarcas"
-        android:text="Marcas" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_marca"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

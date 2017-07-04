@@ -12,6 +12,7 @@ import pooa20171.iff.br.tabelafipeapp.helper.RestFullHelper;
 public class MainActivity extends AppCompatActivity {
 
     RestFullHelper http;
+    String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         //JSONObject json = http.doGet("http://fipeapi.appspot.com/api/1/carros/marcas.json");
     }
-    public void irParaLivro(View v){
+    public void irParaMarcas(View v){
         Intent marca = new Intent(this,MarcaActivity.class);
         startActivity(marca);
     }

@@ -36,11 +36,11 @@ public class RestFullHelper {
     private String charsetToEncode;
 
 
-    public JSONObject doGet(String url) {
+    public JSONArray doGet(String url) {
         return doGet(url, StandardCharsets.UTF_8);
     }
 
-    public JSONObject doGet(String url, Charset charset) {
+    public JSONArray doGet(String url, Charset charset) {
 
 
         if (LOG_ON) {
@@ -51,21 +51,21 @@ public class RestFullHelper {
     }
 
 
-    public JSONObject getJSON(String url, String method) {
+    public JSONArray getJSON(String url, String method) {
         return getJSON(url, method, null, StandardCharsets.UTF_8);
     }
 
-    public JSONObject getJSON(String url, String method, JSONObject params) {
+    public JSONArray getJSON(String url, String method, JSONObject params) {
         return getJSON(url, method, params, StandardCharsets.UTF_8);
     }
 
-    public JSONObject getJSON(String url, String method, JSONObject params, Charset charset) {
+    public JSONArray getJSON(String url, String method, JSONObject params, Charset charset) {
 
         HttpURLConnection conn = null;
 
         String json = null;
         JSONObject jObj = null;
-        JSONArray jAm = null;
+        JSONArray jObja = new JSONArray();
 
         try {
             conn = (HttpURLConnection) getConnection(url, method, "application/json");
@@ -111,10 +111,10 @@ public class RestFullHelper {
         }
 
         try {
-            //json = json.replace("[", "{[").replace("]", "]}");
-            System.out.println("JSON: " + json);
-            jObj = new JSONObject(json);
-            //JSONArray jObja = new JSONArray(json);
+
+            //System.out.println("JSON: " + json);
+            //jObj = new JSONObject(json);
+            jObja = new JSONArray(json);
             //System.out.println("<< Http.Method >> " + method + ": " + jObja.length() + " "+jObja);
             //jObj = (JSONObject) jObja.get(0);
             //System.out.println("<< Json manr >> " + jObj.);
@@ -126,7 +126,7 @@ public class RestFullHelper {
 
         }
 
-        return jObj;
+        return jObja;
     }
 
     public String buffering(BufferedReader reader) {
